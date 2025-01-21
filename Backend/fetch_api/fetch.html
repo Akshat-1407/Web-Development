@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch api</title>
+</head>
+<body>
+    <h4>Hello, World !</h4>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script> <!--axios-->
+
+<!--  USING PROMISES
+    <script>
+        let url = "https://catfact.ninja/fact";
+
+        // fetch() method returns a promise. But the result of promise is not readable.
+        // to read the response the .json() method is used on the result returned by the promise.
+        fetch(url)
+            .then((res) => {
+                console.log("Promise returned by fetch(): \n", res);
+                // to read the result of the promise .json() is used.
+
+                // console.log(res.json()); ~~> now res.json() further returns a promise whose result is a json which is actually readable.
+                return res.json();
+            })
+            .then((data_1) => {
+                console.log(data_1); // data_1 is the result of the promise returned by .json()
+                console.log(data_1.fact);
+                return fetch(url);
+            })
+            .then((res) => {
+                return res.json();
+            })
+            .then((data_2) => {
+                console.log(data_2.fact);
+            })
+    </script> 
+-->
+
+<!-- USING ASYNC AND AWAIT
+    <script>
+        /*
+        Immediately Invoked Function Expression or IIFE :-
+        This is a function that is defined and called immediately. You don’t need to call it explicitly because it invokes itself.
+
+        Syntax -:
+        (function() {
+            console.log("This function is invoked immediately!");
+        })();
+
+        In this example, the function is self-executing because it’s wrapped in parentheses and followed by ().
+        */
+        let url = "https://catfact.ninja/fact";
+
+        (async function() {
+            try {
+                let response = await fetch(url);
+                let data = await response.json();
+                let catFact = data.fact;
+                console.log(catFact);
+            }
+            catch(err) {
+                console.log("ERROR--", err);
+            }
+        })() 
+    </script>
+ -->
+
+    <script>
+        (async () => {
+            let url = "https://catfact.ninja/fact";
+            try {
+                let response = await axios.get(url); // axios.get directly returns a promise whose result is readable and 
+                                           // we can extract out data without parsing it to json.
+                console.log(response);
+                console.log(response.data.fact);
+            }
+            catch(err) {
+                console.log("ERROR-- ", err);
+            }   
+        })();
+    </script>
+</body>
+</html>

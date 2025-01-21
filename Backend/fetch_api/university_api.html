@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities</title>
+
+</head>
+<body>
+    <h1>University list for all colleges</h1>
+    <label for="inp">Enter Country: </label>
+    <input type="text" id="inp">
+    <button>Submit</button>
+    <ul id="list"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script> <!--axios-->
+
+    <script>
+        url = "http://universities.hipolabs.com/search?name="; 
+
+        input = document.querySelector("#inp");
+        btn = document.querySelector("button");
+
+        btn.addEventListener("click", () => {
+            let country = input.value;
+            getUniversity(country);
+            input.value ="";
+        })
+
+        async function getUniversity(country) {
+            try {  
+                let response = await axios.get(url+country);
+                colArr = response.data; // array of data of all the colleges.
+
+                let list = document.querySelector("#list");
+                list.innerText = "";
+
+                for (college of colArr) {
+                    console.log(college.name); 
+                        
+                    let li = document.createElement("li") ;
+                    li.innerText = college.name;
+                    list.appendChild(li);
+                }
+            }  
+            catch(err) {
+                console.log("ERROR-- ", err);
+            }
+        }
+    </script>
+
+</body>
+</html>

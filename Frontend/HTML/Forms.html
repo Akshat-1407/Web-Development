@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <form action="/server">
+
+        <h2>Registration Form</h2> <br>
+
+        <label for="name"><b>Name: </b></label>
+        <input type="text" id="name" placeholder="Enter Your Name" name="name">
+
+        <br><br>
+        
+        <b>Sex: </b>
+        <input type="radio" id="male" name="sex" value="M">
+        <label for="male"><b>Male</b></label>
+        <input type="radio" id="female" name="sex" value="F">
+        <label for="female"><b>Female</b></label>
+
+        <br><br>
+
+        <label for="country"><b>Country: </b></label>
+        <select name="country" id="country">
+            <option>Select an option</option>
+            <option value="India">India</option>
+            <option value="Japan">Japan</option>
+            <option value="USA">USA</option>
+            <option value="Korea">Korea</option>
+        </select>
+
+        <br><br>
+
+        <label for="message"><b>Message: </b></label>
+        <br>
+        <textarea name="msg" id="message" cols="30" rows="4"></textarea>
+
+        <br><br>
+
+        <input type="checkbox" id="checkbox" name="check" value="yes">
+        <label for="checkbox"><b>Suscribe?</b></label>
+
+        <br><br>
+
+        <button type="submit"><b>Submit</b></button>
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <form action="/server">
+        <h2>Feedback Form</h2> <br>
+
+        <label for="name"><b>Name: </b></label>
+        <input type="text" id="name" placeholder="Write Your Name" name="name">
+
+        <br><br>
+
+        <label for="email"><b>Email: </b></label>
+        <input type="email" id="email" placeholder="Write Your Email" name="email">
+
+        <br><br>
+
+        <label for="message"><b>Message: </b></label>
+        <br>
+        <textarea name="msg" id="message" cols="30" rows="4"></textarea>
+
+        <br><br>
+
+        <label for="rating"><b>Rate us out of five: </b></label>
+        <br>
+        <input type="radio" id="1" name="rating" value="1">
+        <label for="1"><b>1</b></label>
+        <br>
+        <input type="radio" id="2" name="rating" value="2">
+        <label for="2"><b>2</b></label>
+        <br>
+        <input type="radio" id="3" name="rating" value="3">
+        <label for="3"><b>3</b></label>
+        <br>
+        <input type="radio" id="4" name="rating" value="4">
+        <label for="4"><b>4</b></label>
+        <br>
+        <input type="radio" id="5" name="rating" value="5">
+        <label for="5"><b>5</b></label>
+        <br><br>
+
+        <button type="submit"><b>Send you message!</b></button>
+    </form>
+    <br>
+</body>
+
+</html>
