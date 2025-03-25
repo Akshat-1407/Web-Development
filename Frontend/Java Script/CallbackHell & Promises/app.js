@@ -1,147 +1,90 @@
+/* <-------------------- Callback --------------------> */
+// When we pass a function as a function argument then it is called callback.
+
 /* <-------------------- Callback Hell --------------------> */
 
-let h1 = document.querySelector("h1");
-
-function changeColor(color, delay, nextColor) {
-    setTimeout(function() {
-        h1.style.color = color;
-        if (nextColor) nextColor();
-    }, delay);
-}
-
-changeColor("violet", 1000, () => {
-    changeColor("indigo", 1000, () => {
-        changeColor("blue", 1000, () => {
-            changeColor("green", 1000, () => {
-                changeColor("yellow", 1000, () => {
-                    changeColor("orange", 1000, () => {
-                        changeColor("red", 1000);
-                    });
-                });
-            });
-        });
-    });
-});
-
-
-
-/* <-------------------- Setting up for Promises --------------------> */
-
-
-function savetoDb(data, sucess, failure) {
-    let internetSpeed = Math.floor(Math.random() * 10) + 1;
-    if (internetSpeed > 4) {
-        sucess();
-    }
-    else {
-        failure();
-    }
-}
-
-savetoDb("Project", () => {
-    console.log("Sucess_1: your data was saved.");
-    savetoDb("Files", () => {
-        console.log("Sucess_2: your data was saved.");
-        savetoDb("Code", () => {
-            console.log("Sucess_3: your data was saved.");
-        }, () => {
-            console.log("Failure: weat connection.")
-        })
-    }, () => {
-        console.log("Failure: weak connection.");
-    })
-}, () => {
-    console.log("Failure: weak connection");
-});
-
-
-/* <-------------------- Promises method chaining --------------------> */
-
-
-function savetoDb(data) {
-    return new Promise((resolve, reject) => {
-        let internetSpeed = Math.floor(Math.random() * 10) + 1;
-        if (internetSpeed > 4) {
-            resolve("Success: data was saved");  // Prosise result
+function getData(data, nextData) {
+    setTimeout(() => {
+        console.log(`Data is: ${data}`);
+        if (nextData) {
+            nextData();
         }
-        else { 
-            reject("Failure: weak connection");  // Promise result or error
-        }
-    });
+    }, 2000);
 }
 
-savetoDb("Project")
-    .then((result) => {
-        console.log("Data_1 Saved");
-        console.log("Result of Promise: ", result);
-        return savetoDb("File");
+
+console.log("Getting data 1.....");
+getData(1, () => {
+    console.log("Getting data 2.....");
+    getData(2, () => {
+        console.log("Getting data 3.....");
+        getData(3);
     })
-    .then((result) => {
-        console.log("Data_2 Saved");
-        console.log("Result of Promise: ", result);
-        return savetoDb("Code");
-    })
-    .then((result) => {
-        console.log("Data_3 Saved");
-        console.log("Result of Promise: ", result);
-    })
-    .catch((error) => {
-        console.log("Promise rejected"); 
-        console.log("Result of Promise: ", error)
-    });
+})
 
+/* <-------------------- Promises --------------------> */
 
-/* <-------------------- Solution for callback hell --------------------> */
-
-
-h1 = document.querySelector("h1");
-
-function changeColor(color, delay) {
+function getData(data) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            h1.style.color = color;
-            resolve("Color changed");
-        }, delay);
-        
+            console.log(`Data is: ${data}`);
+            resolve("Data is Fetched Sucessfully.")
+        }, 2000);
     })
 }
 
-changeColor("violet", 1000)
-    .then((result) => {
-        h1.style.color = "violet";
-        console.log("Result of Promise: ", result)
-        return changeColor("indigo", 1000);
-    })
-    .then((result) => {
-        h1.style.color = "indigo";
-        console.log("Result of Promise: ", result)
-        return changeColor("blue", 1000);
-    })
-    .then((result) => {
-        h1.style.color = "blue";
-        console.log("Result of Promise: ", result)
-        return changeColor("green", 1000);
-    })
-    .then((result) => {
-        h1.style.color = "green";
-        console.log("Result of Promise: ", result)
-        return changeColor("yellow", 1000);
-    })
-    .then((result) => {
-        h1.style.color = "yellow";
-        console.log("Result of Promise: ", result)
-        return changeColor("orange", 1000);
-    })
-    .then((result) => {
-        h1.style.color = "orange";
-        console.log("Result of Promise: ", result)
-        return changeColor("red", 1000);
-    })
-    .then((result) => {
-        console.log("Result of Promise: ", result)
-        h1.style.color = "red";
-    })
-    .catch((error) => {
-        console.log("Promise Rejected")
-        console.log("Result of Promise: ", error);
-    })
+getData(1) 
+  .then((res) => {          // .then method only executes when the promise becomes sucessful.
+    console.log(res);
+    getData(2)
+      .then((res) => {
+        console.log(res);
+        getData(3)
+            .then((res) => {
+                console.log(res);
+            })
+        })
+  })
+  .catch((err) => {
+      console.log("Some error occured...");
+  })
+
+/* Promise chaining */
+
+getData(1)
+  .then((res) => {      // res -> result
+    console.log(res);
+    return getData(2);
+  })
+  .then((res) => {
+    console.log(res);
+    return getData(3);
+  })
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {   // err -> error
+    console.log("Some error occured...")
+  })   
+
+
+/* <-------------------- Async/Await--------------------> */
+
+function getData(data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`Data is: ${data}`);
+            resolve("Data is Fetched Sucessfully. ")
+        }, 2000);
+    })  
+};
+
+async function getAllData() {
+    console.log("Getting Data 1.....");
+    await getData(1);
+    console.log("Getting Data 2.....");
+    await getData(2);
+    console.log("Getting Data 3.....");
+    await getData(3);
+}
+getAllData();

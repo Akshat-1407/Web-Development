@@ -10,11 +10,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script> <!--axios-->
 
-<!--  USING PROMISES
+<!-- USING PROMISES -->
     <script>
         let url = "https://catfact.ninja/fact";
 
-        // fetch() method returns a promise. But the result of promise is not readable.
+        // fetch() method returns a promise. But the result of promise is not readable. It returns a promise
         // to read the response the .json() method is used on the result returned by the promise.
         fetch(url)
             .then((res) => {
@@ -36,9 +36,9 @@
                 console.log(data_2.fact);
             })
     </script> 
--->
 
-<!-- USING ASYNC AND AWAIT
+
+<!-- USING ASYNC AND AWAIT -->
     <script>
         /*
         Immediately Invoked Function Expression or IIFE :-
@@ -51,11 +51,11 @@
 
         In this example, the function is self-executing because it’s wrapped in parentheses and followed by ().
         */
-        let url = "https://catfact.ninja/fact";
+        let url_ = "https://catfact.ninja/fact";
 
         (async function() {
             try {
-                let response = await fetch(url);
+                let response = await fetch(url_);
                 let data = await response.json();
                 let catFact = data.fact;
                 console.log(catFact);
@@ -65,8 +65,8 @@
             }
         })() 
     </script>
- -->
 
+<!-- Using axios -->
     <script>
         (async () => {
             let url = "https://catfact.ninja/fact";
