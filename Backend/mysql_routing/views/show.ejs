@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Users</title>
+</head>
+<body>
+    <table border="black">
+        <tr>
+            <th><b>Id</b></th>
+            <th><b>Username</b></th>
+            <th><b>Email</b></th>
+        </tr>
+        <% for(user of result) { %>
+            <tr>
+                <td> <%= user.id %></td>
+                <td> <%= user.username %></td>
+                <td> <%= user.email %></td>
+                <td>
+                    <form method="GET" action="/user/<%= user.id %>/edit">
+                        <button type="submit">&nbsp; edit username &nbsp;</button>
+                    </form>
+                </td>
+            </tr> 
+        <% } %>
+    </table>
+</body>
+</html>
