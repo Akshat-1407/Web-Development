@@ -1,0 +1,15 @@
+{
+  "name": "mongoose",
+  "version": "1.0.0",
+  "description": "* It is a library that `creates a connection` between MongoDB and NodeJs JavaScript runtime environment.\r * It is an `ODM (Object Data Modelling)` library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.13.2"
+  }
+}
