@@ -12,14 +12,6 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 
-createRandomUser = () => {
-  return [
-    faker.string.uuid(),
-    faker.internet.username(),
-    faker.internet.email(),
-    faker.internet.password(),
-  ];
-}
 
 // Create the connection to database
 const connection = mysql.createConnection({
@@ -64,7 +56,7 @@ app.get("/user", (req, res) => {
 });
 
 
-// edit route
+// Edit Route
 app.get("/user/:id/edit", (req, res) => {
   let id = req.params.id;
   try {
@@ -82,7 +74,7 @@ app.get("/user/:id/edit", (req, res) => {
 });
 
 
-// Update (DB) route
+// Update (DB) Route
 app.patch("/user/:id", (req, res) => {
   let {id} = req.params;
   let { username: newUsername, password: formPass} = req.body;

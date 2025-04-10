@@ -37,7 +37,7 @@ app.get('/search', (req, res) => {
 // })
 
 // app.get('*', (req, res) => {
-//   res.send("It is a get request. Executed when none of the above routs are matched.")
+//   res.send("It is a get request. Executed when none of the above routes are matched.")
 // })
 
 
