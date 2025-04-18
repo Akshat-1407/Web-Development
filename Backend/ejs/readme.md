@@ -225,6 +225,8 @@ app.get("/insta/:username", (req, res) => {
 <li> <%= follower %> </li>
 <% } %>
 ```
+___
+
 # Serving Static Files 
 It is used to send additional css and js files along with ejs rendering.
 

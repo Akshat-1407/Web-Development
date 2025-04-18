@@ -51,7 +51,40 @@ Example -
 ```
 
 ### 2. **app.use( ) :**
-Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path.
+
+#### app.use([path,] callback [, callback...])
+
+* It listens to every request whether it it GET, POST, PUT, PATCH, DELETE.
+
+* Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path.
+
+#### `path`
+The path for which the middleware function is invoked. This can be:
+- A string representing a path.
+- A path pattern.
+- A regular expression pattern to match paths.
+- An array of combinations of the above.
+
+**Default**: `'/'` (root path)
+
+#### `callback`
+The callback functions invoked by the middleware. This can be:
+- A single middleware function.
+- A series of middleware functions (separated by commas).
+- An array of middleware functions.
+- A combination of all the above.
+
+By combining these arguments effectively, you can control when and how middleware functions execute within your Express application.
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+  console.log('Time:', Date.now());
+  next();
+});
+```
 
 
 ### 3. **app.get( ) :**
