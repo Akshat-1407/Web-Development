@@ -19,8 +19,6 @@ app.get("/api", (req, res) => {
 })
 */
 
-
-
 // We can also use middlewares in the app.METHOD
 
 const checkToken = ("/api", (req, res, next) => {
@@ -35,7 +33,6 @@ const checkToken = ("/api", (req, res, next) => {
 app.get("/api", checkToken, (req, res) => {
     res.send("data");
 })
-
 
 
 // 404 Error
