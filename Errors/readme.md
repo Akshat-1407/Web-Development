@@ -19,3 +19,15 @@ In order for next() to pass to control to the next error handling middleware fun
 **and when all the custom error handling middlewares are called then the default error handling middlware is called which shows the err stack**
 
 > Normally when there is an error express automatically calls the next(), but in case of asynchronous error next() is not called automatically by the express. We have to call next() ourselves manually.
+___
+
+## wrapAsync
+It is used to handle asynchronous error in the code. Instead of using try and catch we enclose the whole asynchronous function in this wrap async function.
+
+```javascript
+function wrapAsync(fn) {
+  return function(req, res, next) {
+    fn(req, res, next).catch(err)
+  }
+}
+```
