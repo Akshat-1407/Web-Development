@@ -17,3 +17,5 @@ When we call next() in error handling middleware express looks for the next non-
 In order for next() to pass to control to the next error handling middleware function we pass err as an argument to the next like this: next(err);
 
 **and when all the custom error handling middlewares are called then the default error handling middlware is called which shows the err stack**
+
+> Normally when there is an error express automatically calls the next(), but in case of asynchronous error next() is not called automatically by the express. We have to call next() ourselves manually.
