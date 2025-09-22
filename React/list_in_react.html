@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Component</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <!-- React -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> <!-- React Dom -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- Transpiler - Babel -->
+
+</head>
+<body>
+
+    <div id="root"></div>   
+
+    <script type="text/babel">
+
+        function App() {
+
+            const items = [
+                { id: 1, name: 'Apple' },
+                { id: 2, name: 'Banana' },
+                { id: 3, name: 'Cherry' },
+                { id: 4, name: 'Date' },
+                { id: 5, name: 'Elderberry' }
+            ];
+
+            return <div>
+                <h1>Fruits List</h1>
+                <ul>
+                    {items.map((item) => (
+                        <li key={item.id}>{item.name}</li>
+                    ))}
+                </ul>    
+            </div>
+
+        }
+
+        ReactDOM.render(<App></App>, document.querySelector("#root"));
+    </script>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"b content="width=device-width, initial-scale=1.0">
+    <title>Component Composition</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <!-- React -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> <!-- React Dom -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- Transpiler - Balel -->
+
+</head>
+<body>
+
+    <h1 style="color: red;">React Component Composition</h1>
+    <div id="root"></div>   
+
+    <script type="text/babel">
+
+        function Intro(props) {
+            let {name, age} = props;
+            return <h2>{name} is {age} years old.</h2>
+        }
+
+        function ParentIntro() {
+            return <div>
+                <Intro name={"Rahul"} age={15}></Intro>
+                <Intro name={"Steve"} age={23}></Intro>
+                <Intro name={"Bob"} age={19}></Intro>
+                <Intro name={"Cedric"} age={25}></Intro>  
+                <Intro name={"Raghav"} age={19}></Intro>              
+            </div>
+        }
+
+        ReactDOM.render(<ParentIntro></ParentIntro>, document.querySelector("#root"));
+    </script>
+    
+</body>
+</html>

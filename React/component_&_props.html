@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Component</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <!-- React -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> <!-- React Dom -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- Transpiler - Balel -->
+
+</head>
+<body>
+
+    <h1 style="color: red;">React Components</h1>
+    <div id="root"></div>   
+
+    <script type="text/babel">
+
+        function Intro(props) {
+            let {name, age} = props;
+            return <h2>{name} is {age} years old.</h2>
+        }
+
+        ReactDOM.render(<Intro name={"Raghav"} age={19}></Intro>, document.querySelector("#root"));
+    </script>
+    
+</body>
+</html>

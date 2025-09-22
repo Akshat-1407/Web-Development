@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <!-- React -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> <!-- React Dom -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- Transpiler - Balel -->
+
+</head>
+<body>
+
+    <style>
+        #root {
+            text-align: center;
+        }
+        button {
+            margin: 0 1rem 0 1rem;
+        }
+        h1 {
+            color: maroon;
+        }
+    </style>
+   
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Counter(props) {
+            const [count, setCount] = React.useState(props.start);
+            // setCount is a function which is used to modify the value of the count.
+            
+            const increment = () => {
+                if (count < 10) {
+                    setCount(count+1);
+                }
+            }
+            const decrement = () => {
+                if (count > 1) {
+                    setCount(count-1);
+                }
+            }
+
+            return <div>
+                <h1>Counter</h1>
+                <h2>{count}</h2>
+                <button onClick={decrement}>-</button>
+                <button onClick={increment}>+</button>
+            </div>
+        
+        }
+
+        function ParentCounter() {
+            return <div>
+                <Counter start={1}></Counter>
+                <Counter start={5}></Counter>
+                <Counter start={10}></Counter>    
+            </div>
+        }
+
+        ReactDOM.render(<ParentCounter></ParentCounter>, document.querySelector("#root"));
+
+    </script>
+
+</body>
+</html>
