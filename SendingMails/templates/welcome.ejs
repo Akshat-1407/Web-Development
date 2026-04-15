@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Email</title>
+    <style>
+        @media screen and (max-width: 600px) {
+            .content { width: 100% !important; border-radius: 0 !important; }
+            .button { width: 100% !important; text-align: center; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f7f9; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" style="padding: 40px 0;">
+                <table class="content" width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    
+                    <tr>
+                        <td align="center" style="background-color: #4A90E2; padding: 40px 20px;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px; letter-spacing: 1px;">Welcome to Our Community!</h1>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <h2 style="color: #333333; margin-top: 0;">Hi, <%= userName %>! 👋</h2>
+                            <p style="color: #555555; font-size: 16px; line-height: 1.6;">
+                                We're thrilled to have you here. Your journey with us starts now, and we've prepared a few things to help you get settled.
+                            </p>
+                            
+                            <div style="background-color: #f9f9f9; border-left: 4px solid #4A90E2; padding: 15px; margin: 25px 0;">
+                                <p style="margin: 0; font-size: 14px; color: #666;">
+                                    <strong>Account Email:</strong> <%= userEmail %><br>
+                                    <strong>Status:</strong> Active
+                                </p>
+                            </div>
+
+                            <p style="color: #555555; font-size: 16px; line-height: 1.6;">
+                                Click the button below to complete your profile and start exploring our features.
+                            </p>
+
+                            <table border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px;">
+                                <tr>
+                                    <td align="center" bgcolor="#4A90E2" style="border-radius: 5px;">
+                                        <a href="https://yourwebsite.com/dashboard" target="_blank" style="font-size: 16px; font-weight: bold; color: #ffffff; text-decoration: none; padding: 15px 30px; display: inline-block;">
+                                            Get Started Now
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 30px; background-color: #333333; color: #ffffff; text-align: center; font-size: 12px;">
+                            <p style="margin: 0 0 10px 0;">© 2026 Your Company, Inc.</p>
+                            <p style="margin: 0;">
+                                <a href="#" style="color: #4A90E2; text-decoration: none;">Privacy Policy</a> | 
+                                <a href="#" style="color: #4A90E2; text-decoration: none;">Unsubscribe</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
